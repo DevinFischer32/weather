@@ -1,24 +1,34 @@
 export default function Search(props) {
-  const { cityFn, countryFn, temperatureFn, searchFn } = props;
+  const { onChangeFn, searchFn } = props;
   return (
     <>
       <div>
         <form>
-          <input type="text" placeholder="City/Location" onChange={cityFn} />
-          <input type="text" placeholder="Country" onChange={countryFn} />
+          <input
+            type="text"
+            name="city"
+            placeholder="City/Location"
+            onChange={onChangeFn}
+          />
+          <input
+            type="text"
+            name="country"
+            placeholder="State/Country"
+            onChange={onChangeFn}
+          />
           <div>
             <input
               type="radio"
               value="imperial"
-              name="Temperature"
-              onChange={temperatureFn}
+              name="temperature"
+              onChange={onChangeFn}
             />
             Fahrenheit
             <input
               type="radio"
               value="metric"
-              name="Temperature"
-              onChange={temperatureFn}
+              name="temperature"
+              onChange={onChangeFn}
             />
             Celsius
           </div>
