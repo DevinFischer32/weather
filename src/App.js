@@ -16,6 +16,7 @@ function App() {
     display: false,
     city: "",
     country: "",
+    localtime: "",
   });
   const [data, setdata] = useState({});
 
@@ -49,7 +50,6 @@ function App() {
             `https://api.openweathermap.org/data/2.5/onecall?lat=${geo.lat}&lon=${geo.lon}&units=${form.temperature}&appid=${process.env.REACT_APP_API_KEY}`
           )
           .then((res) => {
-            console.log("API2 RES", res);
             setdata(res.data);
             setdisplay((state) => ({
               ...state,

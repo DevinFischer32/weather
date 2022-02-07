@@ -2,7 +2,6 @@ import React from "react";
 
 export default function Weather(props) {
   const { setdisplay, display, data, form } = props;
-  console.log(data);
   let val = Math.floor(data.current.wind_deg / 45 + 0.5);
   let compass = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
   let direction = compass[val % 8];
