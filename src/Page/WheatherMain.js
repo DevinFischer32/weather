@@ -7,12 +7,12 @@ export default function WheatherMain(props) {
   return (
     <div>
       <h1>The Weather App</h1>
-      {display ? (
+      {display.display ? (
         <Weather
-          form={form}
           data={data}
-          setdisplay={setdisplay}
           display={display}
+          form={form}
+          setdisplay={setdisplay}
         />
       ) : (
         <Search onChangeFn={onChangeFn} searchFn={searchFn} />

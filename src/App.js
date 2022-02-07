@@ -4,8 +4,8 @@ import axios from "axios";
 
 function App() {
   const [geo, setGeo] = useState({
-    lon: 0,
-    lat: 0,
+    lon: "",
+    lat: "",
   });
   const [form, setForm] = useState({
     city: "",
@@ -31,17 +31,16 @@ function App() {
     e.preventDefault();
     await axios
       .get(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${form.city},+${form.country}&key=${process.env.GEOCODE}`
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${form.city},+${form.country}&key=${process.env.REACT_APP_GEOCODE}`
       )
       .then((res) => {
-        console.log(res);
         setGeo({
           lon: res.data.results[0].geometry.location.lng,
           lat: res.data.results[0].geometry.location.lat,
         });
-
         setdisplay({
-          city: res.data,
+          city: res.data.results[0].address_components[0].long_name,
+          country: res.data.results[0].address_components[3].short_name,
         });
       })
       .then((res) => {
@@ -50,8 +49,12 @@ function App() {
             `https://api.openweathermap.org/data/2.5/onecall?lat=${geo.lat}&lon=${geo.lon}&units=${form.temperature}&appid=${process.env.REACT_APP_API_KEY}`
           )
           .then((res) => {
-            setdata(res);
-            setdisplay({ display: true });
+            console.log("API2 RES", res);
+            setdata(res.data);
+            setdisplay((state) => ({
+              ...state,
+              display: true,
+            }));
           });
       });
   };
