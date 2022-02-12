@@ -1,6 +1,8 @@
 import WheatherMain from "./Page/WheatherMain";
 import React, { useState } from "react";
 import axios from "axios";
+import "./CSS/App.css";
+import "./CSS/reset.css";
 
 function App() {
   const [geo, setGeo] = useState({
@@ -30,6 +32,7 @@ function App() {
   };
   let searchFn = async (e) => {
     e.preventDefault();
+
     await axios
       .get(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${form.city},+${form.country}&key=${process.env.REACT_APP_GEOCODE}`

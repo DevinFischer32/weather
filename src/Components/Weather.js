@@ -1,4 +1,6 @@
 import React from "react";
+import f from "../Icons/fahrenheit.png";
+import c from "../Icons/celsius.png";
 
 export default function Weather(props) {
   const { setdisplay, display, data, form } = props;
@@ -6,17 +8,31 @@ export default function Weather(props) {
   let compass = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
   let direction = compass[val % 8];
 
+  console.log(data);
   return (
-    <div>
+    <div className="weather_container">
       <h1>
         {display.city}, {display.country}
       </h1>
+      <img
+        src={`http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`}
+        alt=""
+      />
+
       <h2>{`Temperature Now: ${Math.round(data.current.temp)} ${
-        form.temperature === "imperial" ? "\u2109" : "\u2103"
+        form.temperature === "imperial" ? (
+          <img className="temp" src={f} alt="" />
+        ) : (
+          <img className="temp" src={c} alt="" />
+        )
       }`}</h2>
+
       <h2>Humidity : {data.current.humidity}% </h2>
+
       <h2>
-        Wind : {Math.round(data.current.wind_speed)} mph {direction}
+        {data.current.wind_speed === 0
+          ? "Wind : 0 mph"
+          : `Wind : ${Math.round(data.current.wind_speed)} mph ${direction}`}
       </h2>
 
       <h2>{data.current.weather[0].main}</h2>

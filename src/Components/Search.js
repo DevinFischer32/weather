@@ -1,38 +1,49 @@
+import searchIcon from "../Logo/search.png";
 export default function Search(props) {
   const { onChangeFn, searchFn } = props;
   return (
     <>
       <div>
-        <form>
+        <form id="form">
           <input
+            autoComplete="off"
+            className="sinput"
             type="text"
             name="city"
-            placeholder="City/Location"
+            placeholder="City"
             onChange={onChangeFn}
           />
           <input
+            autoComplete="off"
+            className="sinput"
             type="text"
             name="country"
             placeholder="State/Country"
             onChange={onChangeFn}
           />
-          <div>
-            <input
-              type="radio"
-              value="imperial"
-              name="temperature"
-              onChange={onChangeFn}
-            />
-            Fahrenheit
-            <input
-              type="radio"
-              value="metric"
-              name="temperature"
-              onChange={onChangeFn}
-            />
-            Celsius
+          <div id="stack">
+            <label htmlFor="temperature">
+              <input
+                type="radio"
+                value="imperial"
+                name="temperature"
+                onChange={onChangeFn}
+              />
+              Fahrenheit
+            </label>
+            <label htmlFor="temperature">
+              <input
+                type="radio"
+                value="metric"
+                name="temperature"
+                onChange={onChangeFn}
+              />
+              Celsius
+            </label>
           </div>
-          <button onClick={searchFn}>Search</button>
+          <button id="submit_btn" onClick={searchFn}>
+            <img id="searchIcon" src={searchIcon} alt="" />
+          </button>
         </form>
       </div>
     </>
