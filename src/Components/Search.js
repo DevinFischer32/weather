@@ -1,4 +1,4 @@
-import searchIcon from "../Logo/search.png";
+import searchIcon from "../Icons/search.png";
 export default function Search(props) {
   const { onChangeFn, searchFn } = props;
   return (
@@ -21,7 +21,7 @@ export default function Search(props) {
             placeholder="State/Country"
             onChange={onChangeFn}
           />
-          <div id="stack">
+          {/* <div id="stack">
             <label htmlFor="temperature">
               <input
                 type="radio"
@@ -40,7 +40,7 @@ export default function Search(props) {
               />
               Celsius
             </label>
-          </div>
+          </div> */}
           <button id="submit_btn" onClick={searchFn}>
             <img id="searchIcon" src={searchIcon} alt="" />
           </button>

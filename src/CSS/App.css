@@ -13,7 +13,7 @@
   background-color: rgba(0, 0, 0, 0.7);
   color: aliceblue;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 #form {
   display: flex;
@@ -43,6 +43,14 @@
 }
 #title {
   font-size: 24px;
+}
+#temp_now_div {
+  display: flex;
+}
+#temp {
+  width: 32px;
+  height: 32px;
+  margin-left: 16px;
 }
 .sinput {
   width: 9vw;

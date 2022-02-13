@@ -5,14 +5,10 @@ import "./CSS/App.css";
 import "./CSS/reset.css";
 
 function App() {
-  const [geo, setGeo] = useState({
-    lon: "",
-    lat: "",
-  });
   const [form, setForm] = useState({
     city: "",
     country: "",
-    temperature: "",
+    temperature: true,
   });
   const [display, setdisplay] = useState({
     display: false,
@@ -20,46 +16,44 @@ function App() {
     country: "",
     localtime: "",
   });
-  const [data, setdata] = useState({});
+  const [data, setdata] = useState([]);
 
   const onChangeFn = (e) => {
     const { value, name } = e.target;
-
     setForm((state) => ({
       ...state,
       [name]: value,
     }));
   };
+
   let searchFn = async (e) => {
     e.preventDefault();
 
     await axios
       .get(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${form.city},+${form.country}&key=${process.env.REACT_APP_GEOCODE}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${form.city},${form.country}&units=imperial&appid=${process.env.REACT_APP_API_KEY}`
       )
       .then((res) => {
-        setGeo({
-          lon: res.data.results[0].geometry.location.lng,
-          lat: res.data.results[0].geometry.location.lat,
-        });
+        setdata(res.data);
         setdisplay({
-          city: res.data.results[0].address_components[0].long_name,
-          country: res.data.results[0].address_components[3].short_name,
+          city: res.data.name,
+          country: res.data.sys.country,
+          display: true,
         });
-      })
-      .then((res) => {
-        axios
-          .get(
-            `https://api.openweathermap.org/data/2.5/onecall?lat=${geo.lat}&lon=${geo.lon}&units=${form.temperature}&appid=${process.env.REACT_APP_API_KEY}`
-          )
-          .then((res) => {
-            setdata(res.data);
-            setdisplay((state) => ({
-              ...state,
-              display: true,
-            }));
-          });
       });
+    // .then((res) => {
+    //   axios
+    //     .get(
+    //       `https://timezone.abstractapi.com/v1/current_time/?api_key=${process.env.TIME_API_KEY}&location=${display.city}, ${display.country}`
+    //     )
+    //     .then((res) => {
+    //       setdisplay((state) => ({
+    //         ...state,
+    //         display: true,
+
+    //       }));
+    //     });
+    // });
   };
   return (
     <div className="App">
@@ -67,7 +61,7 @@ function App() {
         data={data}
         display={display}
         form={form}
-        setdisplay={setdisplay}
+        setForm={setForm}
         onChangeFn={onChangeFn}
         searchFn={searchFn}
       />
