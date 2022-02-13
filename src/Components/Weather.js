@@ -3,7 +3,7 @@ import fahrenheit from "../Icons/fahrenheit.png";
 import celsius from "../Icons/celsius.png";
 
 export default function Weather(props) {
-  const { display, data, form, setForm } = props;
+  const { display, data, form } = props;
   let val = Math.floor(data.wind.deg / 45 + 0.5);
   let compass = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
   let direction = compass[val % 8];
