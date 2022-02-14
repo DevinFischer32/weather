@@ -3,7 +3,7 @@ import fahrenheit from "../Icons/fahrenheit.png";
 import celsius from "../Icons/celsius.png";
 
 export default function Weather(props) {
-  const { display, data, form } = props;
+  const { display, data, form, time } = props;
   let val = Math.floor(data.wind.deg / 45 + 0.5);
   let compass = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
   let direction = compass[val % 8];
@@ -12,6 +12,18 @@ export default function Weather(props) {
     <div className="weather_container">
       <h1>
         {display.city}, {display.country}
+      </h1>
+      <h1>
+        {`${
+          time.hour < 10
+            ? "0" + time.hour
+            : time.hour > 12
+            ? (time.hour -= 12)
+            : time.hour
+        } :
+          ${time.min < 10 ? "0" + time.min : time.min} :
+          ${time.sec < 10 ? "0" + time.sec : time.sec}
+        `}
       </h1>
       <img
         src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}

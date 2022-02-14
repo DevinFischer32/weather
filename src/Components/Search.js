@@ -21,26 +21,7 @@ export default function Search(props) {
             placeholder="State/Country"
             onChange={onChangeFn}
           />
-          {/* <div id="stack">
-            <label htmlFor="temperature">
-              <input
-                type="radio"
-                value="imperial"
-                name="temperature"
-                onChange={onChangeFn}
-              />
-              Fahrenheit
-            </label>
-            <label htmlFor="temperature">
-              <input
-                type="radio"
-                value="metric"
-                name="temperature"
-                onChange={onChangeFn}
-              />
-              Celsius
-            </label>
-          </div> */}
+
           <button id="submit_btn" onClick={searchFn}>
             <img id="searchIcon" src={searchIcon} alt="" />
           </button>

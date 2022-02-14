@@ -1,5 +1,5 @@
 import WheatherMain from "./Page/WheatherMain";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./CSS/App.css";
 import "./CSS/reset.css";
@@ -11,18 +11,51 @@ function App() {
     temperature: true,
   });
   const [display, setdisplay] = useState({
-    display: false,
     city: "",
     country: "",
-    localtime: [],
+    display: false,
+  });
+  const [time, setTime] = useState({
+    sec: null,
+    min: null,
+    hour: null,
   });
   const [data, setdata] = useState([]);
+
+  let ticking = () => {
+    if (time.hour !== null) {
+      if (time.sec < 59 && time.min < 59) {
+        setTime((state) => ({
+          ...state,
+          sec: time.sec + 1,
+        }));
+      } else if (time.sec > 58 && time.min < 59) {
+        setTime((state) => ({
+          ...state,
+          min: time.min + 1,
+          sec: 0,
+        }));
+      } else if (time.sec > 58 && time.min > 58) {
+        setTime({
+          hour: time.hour + 1,
+          min: 0,
+          sec: 0,
+        });
+      }
+    }
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      ticking();
+    }, 1000);
+  });
 
   const onChangeFn = (e) => {
     const { value, name } = e.target;
     setForm((state) => ({
       ...state,
-      [name]: value,
+      [name]: value.replace(/^\s+|\s+$/gm, ""),
     }));
   };
 
@@ -41,23 +74,29 @@ function App() {
           display: true,
         });
       })
-      .then((res) => {
-        axios
+      .catch((error) => {
+        alert(error);
+      })
+      .then(async (res) => {
+        await axios
           .get(
             `https://timezone.abstractapi.com/v1/current_time/?api_key=${process.env.REACT_APP_TIME_API_KEY}&location=${display.city}, ${display.country}`
           )
           .then((res) => {
-            let time = res.data.datetime.split("").slice(11).join(" ");
-            setdisplay((state) => ({
-              ...state,
-              localtime: time,
-            }));
-            console.log(time);
+            let timeData = res.data.datetime;
+            let t = timeData.split("").slice(11).join(" ");
+            let lt = t.replace(/:/g, "").replace(/ /g, "");
+
+            setTime({
+              sec: parseInt(lt.slice(4, 6)),
+              min: parseInt(lt.slice(2, 4)),
+              hour: parseInt(lt.slice(0, 2)),
+            });
           });
+      })
+      .catch((error) => {
+        alert(error);
       });
-    // let timeFn = (localtime) => {
-    //   setInterval(() => {}, 1000);
-    // };
   };
 
   return (
@@ -65,6 +104,7 @@ function App() {
       <WheatherMain
         data={data}
         display={display}
+        time={time}
         form={form}
         setForm={setForm}
         onChangeFn={onChangeFn}
