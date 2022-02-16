@@ -1,6 +1,6 @@
 import React from "react";
-import Search from "../Components/Search";
 import Weather from "../Components/Weather";
+import Search from "../Components/Search";
 
 export default function WheatherMain(props) {
   const { data, display, onChangeFn, searchFn, form, setForm, time } = props;

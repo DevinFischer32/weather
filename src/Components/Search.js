@@ -13,12 +13,13 @@ export default function Search(props) {
             placeholder="City"
             onChange={onChangeFn}
           />
+
           <input
             autoComplete="off"
             className="sinput"
             type="text"
             name="country"
-            placeholder="State/Country"
+            placeholder="Country 2-Alpha"
             onChange={onChangeFn}
           />
 

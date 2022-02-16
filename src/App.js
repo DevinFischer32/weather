@@ -1,5 +1,5 @@
-import WheatherMain from "./Page/WheatherMain";
 import React, { useState, useEffect } from "react";
+import WheatherMain from "./Page/WheatherMain";
 import axios from "axios";
 import "./CSS/App.css";
 import "./CSS/reset.css";
@@ -61,14 +61,17 @@ function App() {
 
   let searchFn = async (e) => {
     e.preventDefault();
-
     await axios
       .get(
         `https://api.openweathermap.org/data/2.5/weather?q=${form.city},${form.country}&units=imperial&appid=${process.env.REACT_APP_API_KEY}`
       )
-      .then(async (res) => {
+      .then((res) => {
+        document.body.style.backgroundImage =
+          "url('https://source.unsplash.com/1600x900/?" +
+          form.city +
+          " nature')";
         setdata(res.data);
-        await setdisplay({
+        setdisplay({
           city: res.data.name,
           country: res.data.sys.country,
           display: true,
@@ -77,14 +80,13 @@ function App() {
       .catch((error) => {
         alert(error);
       })
-      .then(async (res) => {
-        await axios
+      .then((res) => {
+        axios
           .get(
             `https://timezone.abstractapi.com/v1/current_time/?api_key=${process.env.REACT_APP_TIME_API_KEY}&location=${display.city}, ${display.country}`
           )
           .then((res) => {
-            let timeData = res.data.datetime;
-            let t = timeData.split("").slice(11).join(" ");
+            let t = res.data.datetime.split("").slice(11).join(" ");
             let lt = t.replace(/:/g, "").replace(/ /g, "");
 
             setTime({

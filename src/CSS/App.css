@@ -1,5 +1,4 @@
 #main_container {
-  background-color: brown;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -8,8 +7,8 @@
 }
 .weather_container {
   padding: 32px;
-  width: 50%;
-  height: 70%;
+  width: 40%;
+  height: 50%;
   background-color: rgba(0, 0, 0, 0.7);
   color: aliceblue;
   display: grid;
@@ -17,11 +16,12 @@
 }
 #form {
   display: flex;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(100, 100, 100, 0.7);
   color: aliceblue;
   justify-content: center;
   align-items: center;
   padding: 16px;
+  border-radius: 5rem;
 }
 #submit_btn {
   margin-left: 1em;
@@ -76,4 +76,3 @@
   /* Microsoft Edge */
   color: black;
 }
-/* -------------------------------------------------------- */
