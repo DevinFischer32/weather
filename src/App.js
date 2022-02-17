@@ -66,10 +66,6 @@ function App() {
         `https://api.openweathermap.org/data/2.5/weather?q=${form.city},${form.country}&units=imperial&appid=${process.env.REACT_APP_API_KEY}`
       )
       .then((res) => {
-        document.body.style.backgroundImage =
-          "url('https://source.unsplash.com/1600x900/?" +
-          form.city +
-          " nature')";
         setdata(res.data);
         setdisplay({
           city: res.data.name,

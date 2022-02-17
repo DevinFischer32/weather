@@ -6,7 +6,7 @@ export default function WheatherMain(props) {
   const { data, display, onChangeFn, searchFn, form, setForm, time } = props;
   return (
     <div id="main_container">
-      <h1 id="title">Weather</h1>
+      <h1 className="font_xl">Weather</h1>
       <Search onChangeFn={onChangeFn} searchFn={searchFn} />
       {display.display === true ? (
         <Weather
@@ -17,7 +17,9 @@ export default function WheatherMain(props) {
           time={time}
         />
       ) : (
-        <div>Get the Current Weather of any City in the World!</div>
+        <div className="weather_container">
+          Get the Current Weather of any City in the World!
+        </div>
       )}
     </div>
   );
