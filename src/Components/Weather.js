@@ -43,10 +43,12 @@ export default function Weather(props) {
         </h1>
         <h2 className="font_m">{data.weather[0].main}</h2>
       </div>
-
-      <div className="font_s">
+      <div className="font_s center">
+        <h2> Feels Like : {Math.round(data.main.feels_like)}</h2>
         <h2> Today's Min : {Math.round(data.main.temp_min)}</h2>
         <h2>Today's Max : {Math.round(data.main.temp_max)}</h2>
+      </div>
+      <div className="font_s center">
         <h2>Humidity : {data.main.humidity} % </h2>
         <h2>
           {data.wind.speed === 0

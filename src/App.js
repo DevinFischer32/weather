@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import WheatherMain from "./Page/WheatherMain";
+import WeatherMain from "./Page/WeatherMain";
 import axios from "axios";
 import "./CSS/App.css";
 import "./CSS/reset.css";
@@ -73,33 +73,28 @@ function App() {
           display: true,
         });
       })
-      .catch((error) => {
-        alert(error);
-      })
+
       .then((res) => {
         axios
           .get(
             `https://timezone.abstractapi.com/v1/current_time/?api_key=${process.env.REACT_APP_TIME_API_KEY}&location=${display.city}, ${display.country}`
           )
           .then((res) => {
-            let t = res.data.datetime.split("").slice(11).join(" ");
-            let lt = t.replace(/:/g, "").replace(/ /g, "");
+            const time = res.data.datetime.split("").slice(11).join(" ");
+            const joinedTime = time.replace(/:/g, "").replace(/ /g, "");
 
             setTime({
-              sec: parseInt(lt.slice(4, 6)),
-              min: parseInt(lt.slice(2, 4)),
-              hour: parseInt(lt.slice(0, 2)),
+              sec: parseInt(joinedTime.slice(4, 6)),
+              min: parseInt(joinedTime.slice(2, 4)),
+              hour: parseInt(joinedTime.slice(0, 2)),
             });
           });
-      })
-      .catch((error) => {
-        alert(error);
       });
   };
 
   return (
     <div className="App">
-      <WheatherMain
+      <WeatherMain
         data={data}
         display={display}
         time={time}

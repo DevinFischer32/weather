@@ -86,6 +86,12 @@ body {
   display: flex;
   align-items: center;
 }
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .font_xl {
   font-size: 48px;
 }
