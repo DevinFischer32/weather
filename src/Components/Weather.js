@@ -3,7 +3,7 @@ import fahrenheit from "../Icons/fahrenheit.png";
 import celsius from "../Icons/celsius.png";
 
 export default function Weather(props) {
-  const { display, data, form, time } = props;
+  const { display, data, form } = props;
   let val = Math.floor(data.wind.deg / 45 + 0.5);
   let compass = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
   let direction = compass[val % 8];
@@ -29,18 +29,7 @@ export default function Weather(props) {
         <h1 className="font_l">
           {display.city}, {display.country}
         </h1>
-        <h1 className="font_m">
-          {`${
-            time.hour < 10
-              ? "0" + time.hour
-              : time.hour > 12
-              ? (time.hour -= 12)
-              : time.hour
-          } :
-              ${time.min < 10 ? "0" + time.min : time.min} :
-              ${time.sec < 10 ? "0" + time.sec : time.sec}
-              `}
-        </h1>
+
         <h2 className="font_m">{data.weather[0].main}</h2>
       </div>
       <div className="font_s center">
