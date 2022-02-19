@@ -13,7 +13,7 @@ export default function Weather(props) {
       <div className="flex">
         <img
           id="weatherIcon"
-          src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+          src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
           alt=""
         />
         <div id="temp_now_div">
