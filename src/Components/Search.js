@@ -18,7 +18,7 @@ export default function Search(props) {
           className="sinput font_s"
           type="text"
           name="country"
-          placeholder="Country"
+          placeholder="Country Ex. US"
           onChange={onChangeFn}
         />
 
