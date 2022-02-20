@@ -79,7 +79,8 @@ body {
   height: 32px;
   margin-left: 16px;
 }
-#icon_temp_container {
+#icon_temp_container,
+#container {
   display: flex;
 }
 #icon_div {
