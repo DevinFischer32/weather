@@ -1,12 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-
 body {
-  color: rgb(255, 255, 255);
-  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  color: aliceblue;
 }
-
 #main_container {
+  font-family: "Montserrat", sans-serif;
   height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,8 +16,12 @@ body {
     rgba(0, 207, 255, 1) 100%
   );
 }
+#weather_title {
+  padding: 1rem;
+}
+
 .weather_container {
-  padding: 32px;
+  padding: 2rem;
   width: 40%;
   height: 50%;
   background-color: rgba(150, 150, 150, 0.9);
@@ -30,6 +32,11 @@ body {
   border-bottom-left-radius: 5rem;
   border-bottom-right-radius: 5rem;
 }
+#placeText {
+  text-align: center;
+  grid-column: span 2;
+}
+
 #form {
   align-items: center;
   background-color: rgba(255, 255, 255, 0.5);
@@ -39,58 +46,64 @@ body {
   border-top-right-radius: 5rem;
   display: flex;
   justify-content: space-evenly;
-  padding: 32px;
+  padding: 2rem;
   width: 40%;
 }
+.sinput {
+  width: 40%;
+  height: 3rem;
+  color: black;
+  border-radius: 15px;
+  border: 2px solid black;
+}
 #submit_btn {
-  width: 48px;
-  height: 48px;
-  border-radius: 20px;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid black;
 }
 #searchIcon {
-  width: 24px;
-  height: 24px;
-}
-#stack {
-  display: flex;
-  flex-direction: column;
-}
-#title {
-  font-size: 24px;
+  width: 32px;
+  height: 32px;
 }
 #temp_now_div {
   display: flex;
-  font-size: 48px;
+  align-items: center;
+  height: 128px;
 }
 #temp {
   width: 32px;
   height: 32px;
   margin-left: 16px;
 }
-.sinput {
-  width: 11vw;
-  height: 48px;
-  color: black;
-  border-radius: 20px;
-  border: 2px solid black;
+#icon_temp_container {
+  display: flex;
+}
+#icon_div {
+  display: flex;
+  align-items: flex-start;
 }
 #weatherIcon {
   width: 128px;
   height: 128px;
 }
-.flex {
-  display: flex;
-  align-items: center;
-}
-.center {
+#top_right {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   justify-content: center;
-  align-items: center;
+  height: 128px;
+}
+#bottom_right_div {
+  display: flex;
+  justify-content: flex-end;
+}
+#bottom_left_div {
+  display: flex;
+  justify-content: center;
 }
 .font_xl {
   font-size: 48px;
@@ -104,9 +117,6 @@ body {
 .font_s {
   font-size: 20px;
 }
-#top_right {
-  margin: auto;
-}
 /* All for the Inputs */
 ::placeholder {
   color: black;
@@ -117,4 +127,54 @@ body {
 }
 ::-ms-input-placeholder {
   color: black;
+}
+@media screen and (max-width: 900px) {
+  body {
+    letter-spacing: 1.1px;
+  }
+  #form {
+    flex-direction: column;
+    width: 75%;
+  }
+  .sinput {
+    width: 90%;
+    margin-bottom: 10px;
+  }
+  .weather_container {
+    height: 45%;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+  }
+  #top_right {
+    align-items: center;
+  }
+  #bottom_right_div {
+    justify-content: center;
+  }
+  #icon_temp_container {
+    justify-content: center;
+  }
+  #temp {
+    width: 48px;
+    height: 48px;
+  }
+  .phoneMediafs {
+    font-size: 32px;
+    margin-bottom: 5px;
+  }
+  .font_l {
+    font-size: 40px;
+  }
+  .font_xl {
+    font-size: 50px;
+    font-weight: bold;
+  }
+  .font_m {
+    font-size: 32px;
+  }
+  #container {
+    display: flex;
+    justify-content: center;
+  }
 }

@@ -6,7 +6,7 @@
 
 ## About The App
 
-### The Weather App allows users to search any city in the world and get the current weather. Hosted using Heroku.
+#### The Weather App allows users to search any city in the world and get the current weather. Hosted using Heroku.
 
 ## Technologies
 
