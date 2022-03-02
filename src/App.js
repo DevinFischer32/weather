@@ -39,6 +39,11 @@ const App = () => {
           loaded: true,
         });
       });
+    setForm({
+      city: "",
+      country: "",
+      temperature: true,
+    });
   };
 
   return (
@@ -46,7 +51,7 @@ const App = () => {
       <h1 className="font_xl" id="weatherAppTitle">
         Weather App
       </h1>
-      <Search onChangeFn={onChangeFn} searchFn={searchFn} />
+      <Search onChangeFn={onChangeFn} searchFn={searchFn} form={form} />
       {display.loaded === true ? (
         <Weather
           weatherData={weatherData}

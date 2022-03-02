@@ -1,6 +1,6 @@
 import searchIcon from "../Icons/search.png";
 export default function Search(props) {
-  const { onChangeFn, searchFn } = props;
+  const { onChangeFn, searchFn, form } = props;
   return (
     <>
       <form id="form">
@@ -9,6 +9,7 @@ export default function Search(props) {
           className="searchInput font_m"
           type="text"
           name="city"
+          value={form.city}
           placeholder="City"
           onChange={onChangeFn}
         />
@@ -18,6 +19,7 @@ export default function Search(props) {
           className="searchInput font_m"
           type="text"
           name="country"
+          value={form.country}
           placeholder="Country"
           onChange={onChangeFn}
         />

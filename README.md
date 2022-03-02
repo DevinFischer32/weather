@@ -2,7 +2,7 @@
 
 ## Live Link
 
-- https://weather-app-df32.herokuapp.com/
+- https://weatherapp-df.herokuapp.com/
 
 ## About The App
 
@@ -14,8 +14,9 @@
 
 ## Screenshots
 
-- Landing Page ![](src\Icons\ReadmeImage\MainPageWeatherApp.PNG)
-- Loaded Data ![](src\Icons\ReadmeImage\WeatherData.PNG)
+- Landing Page ![](src\Icons\ReadmeImage\Main.PNG)
+- Loaded Data ![](src\Icons\ReadmeImage\MainData.PNG)
+- Loaded Data ![](src\Icons\ReadmeImage\MainData2.PNG)
 
 ## Setup
 
