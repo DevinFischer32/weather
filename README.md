@@ -12,6 +12,11 @@
 
 `React.js | Javascript | HTML | CSS | Axios | Heroku `
 
+## Screenshots
+
+- Landing Page ![](src\Icons\ReadmeImage\MainPageWeatherApp.PNG)
+- Loaded Data ![](src\Icons\ReadmeImage\WeatherData.PNG)
+
 ## Setup
 
 - Download or Clone Repository

@@ -1,5 +1,6 @@
 body {
   color: aliceblue;
+  font-size: 16px;
 }
 #main_container {
   font-family: "Montserrat", sans-serif;
@@ -9,41 +10,35 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 88, 226, 1) 50%,
-    rgba(0, 207, 255, 1) 100%
+  background: linear-gradient(
+    130deg,
+    rgba(249, 194, 46, 1) 19%,
+    rgba(241, 89, 70, 1) 73%,
+    rgba(228, 42, 17, 1) 100%
   );
 }
-#weather_title {
-  padding: 1rem;
-}
-
 .weather_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.25em;
   padding: 2rem;
   width: 40%;
   height: 50%;
-  background-color: rgba(150, 150, 150, 0.9);
-  border: 2px solid black;
-  border-top: 1px solid black;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-bottom-left-radius: 5rem;
-  border-bottom-right-radius: 5rem;
-}
-#placeText {
-  text-align: center;
-  grid-column: span 2;
+  background-color: rgba(20, 17, 15, 0.85);
+  border: solid 2px rgb(20, 17, 15);
+  border-top: none;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 #form {
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 2px solid black;
-  border-bottom: 1px solid black;
-  border-top-left-radius: 5rem;
-  border-top-right-radius: 5rem;
+  background-color: rgba(20, 17, 15, 0.85);
+  border: solid 2px rgb(20, 17, 15);
+  border-bottom: none;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   display: flex;
   justify-content: space-evenly;
   padding: 2rem;
@@ -53,59 +48,37 @@ body {
   width: 40%;
   height: 3rem;
   color: black;
-  border-radius: 15px;
+  border-radius: 5px;
   border: 2px solid black;
 }
 #submit_btn {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 15px;
+  width: 52px;
+  height: 52px;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid black;
 }
+#weatherPlaceHolderText {
+  text-align: center;
+  grid-column: span 2;
+}
+/* Icons */
 #searchIcon {
   width: 32px;
   height: 32px;
 }
-#temp_now_div {
-  display: flex;
-  align-items: center;
-  height: 128px;
-}
 #temp {
   width: 32px;
   height: 32px;
-  margin-left: 16px;
-}
-#icon_temp_container,
-#container {
-  display: flex;
-}
-#icon_div {
-  display: flex;
-  align-items: flex-start;
 }
 #weatherIcon {
   width: 128px;
   height: 128px;
 }
-#top_right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-  height: 128px;
-}
-#bottom_right_div {
-  display: flex;
-  justify-content: flex-end;
-}
-#bottom_left_div {
-  display: flex;
-  justify-content: center;
-}
+/* ================== */
+/* Font Sizes */
 .font_xl {
   font-size: 48px;
 }
@@ -118,7 +91,8 @@ body {
 .font_s {
   font-size: 20px;
 }
-/* All for the Inputs */
+/* ================== */
+/* PlaceHolder Text Color */
 ::placeholder {
   color: black;
   opacity: 1;
@@ -129,6 +103,8 @@ body {
 ::-ms-input-placeholder {
   color: black;
 }
+/* =================== */
+
 @media screen and (max-width: 900px) {
   body {
     letter-spacing: 1.1px;
