@@ -1,5 +1,16 @@
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 body {
-  color: aliceblue;
+  color: #fffcf2;
   font-size: 16px;
   letter-spacing: 0.05em;
   line-height: 1.1;
@@ -18,6 +29,8 @@ body {
     rgba(241, 89, 70, 1) 73%,
     rgba(228, 42, 17, 1) 100%
   );
+  animation: gradient 14s ease infinite;
+  background-size: 200% 200%;
 }
 #form {
   align-items: center;
@@ -50,7 +63,7 @@ body {
 }
 #top-left-section {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 #weatherTypeIconDiv {
   display: flex;
@@ -82,10 +95,11 @@ body {
   margin-bottom: 0.5em;
 }
 /* Search Input and Search Button */
-.sinput {
+.searchInput {
   width: 40%;
   height: 3rem;
   color: black;
+  background-color: #fffcf2;
   border-radius: 5px;
   border: 2px solid black;
 }
@@ -97,6 +111,7 @@ body {
   justify-content: center;
   align-items: center;
   border: 2px solid black;
+  cursor: pointer;
 }
 /* =============================== */
 
@@ -152,5 +167,38 @@ body {
 }
 /* =================== */
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 480px) {
+  #form {
+    width: 85%;
+  }
+  .weather_container {
+    width: 85%;
+  }
+  .searchInput {
+    width: 35%;
+  }
+  #top-left-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .bottomSection {
+    padding: 0;
+  }
+  .flex-spaceBetween {
+    flex-direction: column;
+    margin-bottom: 0.5em;
+  }
+  .mobileSpacing {
+    margin-bottom: 0.25em;
+  }
+  #cityCountrySection {
+    padding: 0px;
+  }
+  #cityCountryP {
+    margin-top: 1em;
+    font-size: 26px;
+  }
+  .font_xl {
+    font-size: 40px;
+  }
 }

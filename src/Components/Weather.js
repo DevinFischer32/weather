@@ -37,33 +37,33 @@ export default function Weather(props) {
 
       <section className="font_m bottomSection">
         <div className="flex-spaceBetween">
-          <p> Feels Like : </p>
+          <p className="mobileSpacing"> Feels Like : </p>
           <p> {Math.round(weatherData.main.feels_like)}</p>
         </div>
         <div className="flex-spaceBetween">
-          <p> Today's Min : </p>
+          <p className="mobileSpacing"> Today's Min : </p>
           <p> {Math.round(weatherData.main.temp_min)}</p>
         </div>
         <div className="flex-spaceBetween">
-          <p>Today's Max :</p>
+          <p className="mobileSpacing">Today's Max :</p>
           <p>{Math.round(weatherData.main.temp_max)}</p>
         </div>
       </section>
 
       <section className="font_m bottomSection">
         <div className="flex-spaceBetween">
-          <p>Humidity :</p>
+          <p className="mobileSpacing">Humidity :</p>
           <p> {weatherData.main.humidity} % </p>
         </div>
 
         {weatherData.wind.speed === 0 ? (
           <div className="flex-spaceBetween">
-            <p>Wind :</p>
+            <p className="mobileSpacing">Wind :</p>
             <p>0 mph</p>
           </div>
         ) : (
           <div className="flex-spaceBetween">
-            <p>Wind :</p>
+            <p className="mobileSpacing">Wind :</p>
             <p>{`${Math.round(weatherData.wind.speed)} mph ${direction}`}</p>
           </div>
         )}

@@ -6,7 +6,7 @@ export default function Search(props) {
       <form id="form">
         <input
           autoComplete="off"
-          className="sinput font_s"
+          className="searchInput font_m"
           type="text"
           name="city"
           placeholder="City"
@@ -15,10 +15,10 @@ export default function Search(props) {
 
         <input
           autoComplete="off"
-          className="sinput font_s"
+          className="searchInput font_m"
           type="text"
           name="country"
-          placeholder="Country Ex. US"
+          placeholder="Country"
           onChange={onChangeFn}
         />
 
