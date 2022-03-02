@@ -1,6 +1,8 @@
 body {
   color: aliceblue;
   font-size: 16px;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
 }
 #main_container {
   font-family: "Montserrat", sans-serif;
@@ -17,21 +19,6 @@ body {
     rgba(228, 42, 17, 1) 100%
   );
 }
-.weather_container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0.25em;
-  padding: 2rem;
-  width: 40%;
-  height: 50%;
-  background-color: rgba(20, 17, 15, 0.85);
-  border: solid 2px rgb(20, 17, 15);
-  border-top: none;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-}
-
 #form {
   align-items: center;
   background-color: rgba(20, 17, 15, 0.85);
@@ -41,9 +28,60 @@ body {
   border-top-right-radius: 15px;
   display: flex;
   justify-content: space-evenly;
-  padding: 2rem;
+  padding: 1.5em;
   width: 40%;
 }
+.weather_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.5em;
+  padding: 1.5em;
+  width: 40%;
+  height: 50%;
+  background-color: rgba(20, 17, 15, 0.85);
+  border: solid 2px rgb(20, 17, 15);
+  border-top: none;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+#weatherAppTitle {
+  margin-bottom: 0.5em;
+}
+#top-left-section {
+  display: flex;
+  justify-content: space-around;
+}
+#weatherTypeIconDiv {
+  display: flex;
+  align-items: flex-start;
+  width: 110px;
+  height: 110px;
+  padding: none;
+}
+#temperature-icon-div {
+  display: flex;
+  align-items: center;
+}
+#cityCountrySection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 1.25em;
+}
+#cityCountryP {
+  margin-bottom: 0.25em;
+}
+.bottomSection {
+  padding: 1.25em;
+}
+.flex-spaceBetween {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
+}
+/* Search Input and Search Button */
 .sinput {
   width: 40%;
   height: 3rem;
@@ -60,24 +98,32 @@ body {
   align-items: center;
   border: 2px solid black;
 }
+/* =============================== */
+
+/* PlaceHolder Text Before Search */
 #weatherPlaceHolderText {
   text-align: center;
   grid-column: span 2;
 }
+/* ================================ */
+
 /* Icons */
 #searchIcon {
   width: 32px;
   height: 32px;
 }
-#temp {
+#temperatureIcon {
   width: 32px;
   height: 32px;
+  margin-left: 5px;
+  padding-bottom: 5px;
 }
 #weatherIcon {
-  width: 128px;
-  height: 128px;
+  width: 96px;
+  height: 96px;
 }
 /* ================== */
+
 /* Font Sizes */
 .font_xl {
   font-size: 48px;
@@ -86,12 +132,13 @@ body {
   font-size: 32px;
 }
 .font_m {
-  font-size: 24px;
-}
-.font_s {
   font-size: 20px;
 }
+.font_s {
+  font-size: 18px;
+}
 /* ================== */
+
 /* PlaceHolder Text Color */
 ::placeholder {
   color: black;
@@ -106,52 +153,4 @@ body {
 /* =================== */
 
 @media screen and (max-width: 900px) {
-  body {
-    letter-spacing: 1.1px;
-  }
-  #form {
-    flex-direction: column;
-    width: 75%;
-  }
-  .sinput {
-    width: 90%;
-    margin-bottom: 10px;
-  }
-  .weather_container {
-    height: 45%;
-    width: 75%;
-    display: flex;
-    flex-direction: column;
-  }
-  #top_right {
-    align-items: center;
-  }
-  #bottom_right_div {
-    justify-content: center;
-  }
-  #icon_temp_container {
-    justify-content: center;
-  }
-  #temp {
-    width: 48px;
-    height: 48px;
-  }
-  .phoneMediafs {
-    font-size: 32px;
-    margin-bottom: 5px;
-  }
-  .font_l {
-    font-size: 40px;
-  }
-  .font_xl {
-    font-size: 50px;
-    font-weight: bold;
-  }
-  .font_m {
-    font-size: 32px;
-  }
-  #container {
-    display: flex;
-    justify-content: center;
-  }
 }

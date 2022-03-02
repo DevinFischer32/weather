@@ -10,60 +10,64 @@ export default function Weather(props) {
 
   return (
     <div className="weather_container">
-      <div id="icon_temp_container">
-        <div id="container">
-          <div id="icon_div">
-            <img
-              id="weatherIcon"
-              src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
-              alt=""
-            />
-          </div>
-          <div id="temp_now_div" className="font_xl">
-            {Math.round(weatherData.main.temp)}
-            <img
-              id="temp"
-              src={form.temperature ? `${fahrenheit}` : `${celsius}`}
-              alt=""
-            />
-          </div>
+      <section id="top-left-section">
+        <div id="weatherTypeIconDiv">
+          <img
+            id="weatherIcon"
+            src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
+            alt=""
+          />
         </div>
-      </div>
-      <div id="top_right">
-        <h2 className="font_l">
-          {display.city}, {display.country}
-        </h2>
+        <div id="temperature-icon-div">
+          <p className="font_xl">{Math.round(weatherData.main.temp)}</p>
+          <img
+            id="temperatureIcon"
+            src={form.temperature ? `${fahrenheit}` : `${celsius}`}
+            alt=""
+          />
+        </div>
+      </section>
 
-        <h2 className="font_m">{weatherData.weather[0].main}</h2>
-      </div>
-      <div id="bottom_left_div">
-        <div className="font_s">
-          <h5 className="phoneMediafs">
-            {" "}
-            Feels Like : {Math.round(weatherData.main.feels_like)}
-          </h5>
-          <h5 className="phoneMediafs">
-            {" "}
-            Today's Min : {Math.round(weatherData.main.temp_min)}
-          </h5>
-          <div className="phoneMediafs">
-            <h1>Today's Max :</h1>
-            <h1>{Math.round(weatherData.main.temp_max)}</h1>
+      <section id="cityCountrySection">
+        <p className="font_l" id="cityCountryP">
+          {display.city}, {display.country}
+        </p>
+        <p className="font_m">{weatherData.weather[0].main}</p>
+      </section>
+
+      <section className="font_m bottomSection">
+        <div className="flex-spaceBetween">
+          <p> Feels Like : </p>
+          <p> {Math.round(weatherData.main.feels_like)}</p>
+        </div>
+        <div className="flex-spaceBetween">
+          <p> Today's Min : </p>
+          <p> {Math.round(weatherData.main.temp_min)}</p>
+        </div>
+        <div className="flex-spaceBetween">
+          <p>Today's Max :</p>
+          <p>{Math.round(weatherData.main.temp_max)}</p>
+        </div>
+      </section>
+
+      <section className="font_m bottomSection">
+        <div className="flex-spaceBetween">
+          <p>Humidity :</p>
+          <p> {weatherData.main.humidity} % </p>
+        </div>
+
+        {weatherData.wind.speed === 0 ? (
+          <div className="flex-spaceBetween">
+            <p>Wind :</p>
+            <p>0 mph</p>
           </div>
-        </div>
-      </div>
-      <div id="bottom_right_div">
-        <div className="font_s">
-          <h5 className="phoneMediafs">
-            Humidity : {weatherData.main.humidity} %{" "}
-          </h5>
-          <h5 className="phoneMediafs">
-            {weatherData.wind.speed === 0
-              ? "Wind : 0 mph"
-              : `Wind : ${Math.round(weatherData.wind.speed)} mph ${direction}`}
-          </h5>
-        </div>
-      </div>
+        ) : (
+          <div className="flex-spaceBetween">
+            <p>Wind :</p>
+            <p>{`${Math.round(weatherData.wind.speed)} mph ${direction}`}</p>
+          </div>
+        )}
+      </section>
     </div>
   );
 }

@@ -15,7 +15,7 @@ const App = () => {
   const [display, setdisplay] = useState({
     city: "",
     country: "",
-    display: false,
+    loaded: false,
   });
   const onChangeFn = (e) => {
     const { value, name } = e.target;
@@ -36,33 +36,31 @@ const App = () => {
         setdisplay({
           city: res.data.name,
           country: res.data.sys.country,
-          display: true,
+          loaded: true,
         });
       });
   };
 
   return (
-    <div className="App">
-      <div id="main_container">
-        <h1 className="font_xl" id="weather_title">
-          Weather App
-        </h1>
-        <Search onChangeFn={onChangeFn} searchFn={searchFn} />
-        {display.display === true ? (
-          <Weather
-            weatherData={weatherData}
-            display={display}
-            form={form}
-            setForm={setForm}
-          />
-        ) : (
-          <div className="weather_container">
-            <h1 id="weatherPlaceHolderText" className="font_m">
-              Get the Current Weather of any City in the World!
-            </h1>
-          </div>
-        )}
-      </div>
+    <div id="main_container">
+      <h1 className="font_xl" id="weatherAppTitle">
+        Weather App
+      </h1>
+      <Search onChangeFn={onChangeFn} searchFn={searchFn} />
+      {display.loaded === true ? (
+        <Weather
+          weatherData={weatherData}
+          display={display}
+          form={form}
+          setForm={setForm}
+        />
+      ) : (
+        <div className="weather_container">
+          <h1 id="weatherPlaceHolderText" className="font_m">
+            Get the Current Weather of any City in the World!
+          </h1>
+        </div>
+      )}
     </div>
   );
 };
