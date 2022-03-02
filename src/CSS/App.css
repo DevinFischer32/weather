@@ -202,3 +202,21 @@ body {
     font-size: 40px;
   }
 }
+@media screen and (max-width: 900px) {
+  #form {
+    width: 85%;
+  }
+  .weather_container {
+    width: 85%;
+  }
+  .searchInput {
+    width: 35%;
+  }
+  .font_m {
+    font-size: 28px;
+  }
+  #weatherIcon {
+    width: 108px;
+    height: 108px;
+  }
+}
